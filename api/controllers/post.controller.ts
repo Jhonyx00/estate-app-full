@@ -15,6 +15,15 @@ export const getPost = async (req, res) => {
   try {
     const post = await prisma.post.findUnique({
       where: { id },
+      include: {
+        postDetail: true,
+        user: {
+          select: {
+            username: true,
+            avatar: true,
+          },
+        },
+      },
     });
 
     res.status(200).json({ message: post });
@@ -30,11 +39,14 @@ export const addPost = async (req, res) => {
   try {
     const newPost = await prisma.post.create({
       data: {
-        ...body,
+        ...body.postData,
         userId: tokenUserId,
+        postDetail: {
+          create: body.postDetail,
+        },
       },
     });
-    res.status(200).json({ message: newPost });
+    res.status(200).json(newPost);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Failed to create post" });
@@ -69,6 +81,6 @@ export const deletePost = async (req, res) => {
     res.status(200).json({ message: "Post deleted" });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Failed to delete posts" });
+    res.status(500).json({ message: "Failed to delete post" });
   }
 };
