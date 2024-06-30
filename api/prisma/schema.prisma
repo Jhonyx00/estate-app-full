@@ -21,7 +21,7 @@ model User{
    avatar String?
    createdAt DateTime @default(now())
    posts Post[]
-   savedPosts SavePost[]
+   savedPosts SavedPost[]
 
 }
 
@@ -39,10 +39,10 @@ model Post{
    type Type
    property Property
    createdAt DateTime @default(now())
-   user User @relation(fields: [userId], references:[id])
+   user User @relation(fields: [userId], references:[id]) //////////////
    userId String @db.ObjectId
    postDetail PostDetail?
-   savedPosts SavePost[]
+   savedPosts SavedPost[]
 }
 
 enum Type{
@@ -72,7 +72,7 @@ model PostDetail{
 }
 
 
-model SavePost{
+model SavedPost{
     id String @id @default(auto()) @map("_id") @db.ObjectId
     user User @relation(fields: [userId],references: [id]) //reference: id inside user model
     post Post @relation(fields: [postId],references: [id]) 
