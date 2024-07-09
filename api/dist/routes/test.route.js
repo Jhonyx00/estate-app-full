@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const auth_controller_1 = require("../controllers/auth.controller");
+const test_controller_1 = require("../controllers/test.controller");
+const verifyToken_1 = require("../middleware/verifyToken");
 const router = express_1.default.Router();
-router.post("/register", auth_controller_1.register);
-router.post("/login", auth_controller_1.login);
-router.post("/logout", auth_controller_1.logout);
+router.get("/should-be-logged-in", verifyToken_1.verifyToken, test_controller_1.shouldBeLoggedIn);
+router.get("/should-be-admin", test_controller_1.shouldBeAdmin);
 exports.default = router;
-//# sourceMappingURL=auth.route.js.map
+//# sourceMappingURL=test.route.js.map
