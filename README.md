@@ -42,6 +42,6 @@ Technologies used in this project:
 
 ## Useful resources
 
-* Pexels - Used to get the best free stock photos
-* Cloudinary - Used to store the app images 
+* [Pexels](https://www.pexels.com/) - Used to get the best free stock photos
+* [Cloudinary](https://cloudinary.com/) - Used to store the app images
 
