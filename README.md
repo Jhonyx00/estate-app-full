@@ -30,7 +30,7 @@ Here are some of the project's best features:
 3. navigate to the project directory `client` and run the client-side app `npm run dev`
 4. Navigate to `socket` and run the `npm run dev`
 
-##The process
+## The process
 Technologies used in this project:
 
 * React 18.2.0
@@ -40,7 +40,7 @@ Technologies used in this project:
 * MongoDB  
 * Prisma 5.15.1
 
-##Useful resources
+## Useful resources
 
 * Pexels - Used to get the best free stock photos
 * Cloudinary - Used to store the app images 
